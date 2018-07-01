@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
     table.string('email').notNullable();
     table.string('username').notNullable();
     table.text('password').notNullable();
-    table.datetime('date').notNullable;
+    table.datetime('date');
     table.timestamps(true, true);
   })
 };
