@@ -7,7 +7,7 @@ Q2 Project- full stack app
 This is my Q2 Full Stack Project, at Galvanize Web Development Immersive Course.
 
 ## Skills Learned: 
-HTML, CSS, JavaScript, Bulma CSS Framework, and Surge to deploy.
+HTML, CSS, JavaScript, Bulma CSS Framework, and Heroku to deploy.
 
 ## Technical Requirements:
 1. Use HTML, CSS, and JavaScript.
@@ -17,5 +17,5 @@ HTML, CSS, JavaScript, Bulma CSS Framework, and Surge to deploy.
 5. Must be interactive website / accepts user inputs.
 
 ## Developers:
-1. Colton Berger 
+1. Colton Berger
 2. Priscilla Okawa
