@@ -8,7 +8,7 @@ This is my Q2 Full Stack Project, at Galvanize Web Development Immersive Course.
 
 ## Installation
 1. npm install
-2. psql create db cheaptix_db
+2. psql create database cheaptix_db
 3. knex migrate:latest
 4. knex seed:run
 5. run nodemon
