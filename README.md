@@ -4,7 +4,7 @@ Q2 Project- full stack app
 ## Deployed URL: 
 
 ## What are you looking at? 
-This is my Q2 Full Stack Project, at Galvanize Web Development Immersive Course.
+This is our Q2 Full Stack Project, at Galvanize Web Development Immersive Course.
 
 ## Installation
 1. npm install
@@ -13,8 +13,11 @@ This is my Q2 Full Stack Project, at Galvanize Web Development Immersive Course.
 4. knex seed:run
 5. run nodemon
 
-## Skills Learned: 
-HTML, CSS, JavaScript, Express, Bootstrap CSS Framework, and Heroku to deploy.
+## Technologies: 
+Front-end: HTML, CSS, JavaScript, Bootstrap CSS Framework;<br>
+Back-end: Express, Nodejs, knex, PostgreSQL;<br>
+Testing: Mocha, Chai, Supertest;<br>
+Deployment: Heroku.
 
 ## Technical Requirements:
 1. Use HTML, CSS, and JavaScript.
