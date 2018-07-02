@@ -1,0 +1,9 @@
+USER STORIES:
+
+As a <role>, I need to be able to <task/goal>, because <reason>.
+
+As a business, I need to be able to make my tickets for sale available, because
+I want to sell as many tickets as possible before the event.
+
+As a client, I need to be able to see, select and buy tickets for sale, because
+it's always great to pay less when I can.
