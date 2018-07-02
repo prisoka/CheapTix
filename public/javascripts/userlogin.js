@@ -8,7 +8,7 @@ const business = document.getElementById('business_checkbox');
 document.addEventListener('DOMContentLoaded', function(){
 	submitButton.addEventListener('click', function(event){
     if (user.checked) {
-      console.log("user.checked")
+      console.log("HEY SUER IS CHECKED!")
     }
     if (business.checked) {
       //route to index_business page

@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const eventSubmissionRouter = require('./routes/submitevent');
 const loginRouter = require('./routes/login');
-const newEventRouter = require('./routes/index_business');
+const indexBusinss = require('./routes/index_business');
 
 var app = express();
 
@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/submitevent', eventSubmissionRouter);
 app.use('/login', loginRouter);
-app.use('/newevent', newEventRouter);
+app.use('/index_business', indexBusinss);
 
 
 // catch 404 and forward to error handler

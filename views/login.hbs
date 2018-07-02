@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CLIENT</title>
-  <script src="index.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-  <script type="text/javascript" src="login.js" defer></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CLIENT</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script type="text/javascript" src="userlogin.js" defer></script>
+  </head>
 
-<body>
-  <h3>Login</h3>
-  <div id='create-user'>
-    <form onsubmit="createUserFormSubmit(event)">
+  <body>
+    <h3>Login</h3>
+    <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
+      <!-- <div id='create-user'> -->
+
       <div class="field">
         <p class="control has-icons-left has-icons-right">
-          <input id='email-field' class="input" type="email" placeholder="Email">
+          <input id='login_email-field' class="input" type="email" placeholder="Email">
           <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -26,45 +27,46 @@
             </span>
         </p>
       </div>
+
       <div class="field">
         <p class="control has-icons-left">
-          <input id='password-field' class="input" type="password" placeholder="Password">
+          <input id='login_password-field' class="input" type="password" placeholder="Password">
           <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
         </p>
       </div>
+
       <div>
         <label class="checkbox">
             <input type="checkbox">
               Business Partner
           </label>
       </div>
+
       <div class="field is-grouped is-grouped-centered">
         <p class="control">
-          <input id="submit-form" type='submit' class="button is-primary" value="Submit" />
+          <input id="login_submit-form" type='submit' class="button is-primary" value="Submit" />
         </p>
         <p class="control">
-          <input id="reset-form" type="reset" class="button is-light" value="Cancel" />
+          <input id="login_reset-form" type="reset" class="button is-light" value="Cancel" />
           </a>
         </p>
       </div>
-    </form><br />
-  </div>
-  <div id='users' class='columns'>
-  </div>
-  <div id='create-user'>
+
+    </form>
 
     <h3>Create Account</h3>
-    <form onsubmit="createUserFormSubmit(event)">
+    <form onsubmit="CALL FUNCTION FROM LOGIN.JS">
       <div class="field">
         <p class="control has-icons-left has-icons-right">
           <input id='username' class="input" type="text" placeholder="Username">
         </p>
       </div>
+
       <div class="field">
         <p class="control has-icons-left has-icons-right">
-          <input id='email-field' class="input" type="email" placeholder="Email">
+          <input id='create_email-field' class="input" type="email" placeholder="Email">
           <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -73,81 +75,38 @@
             </span>
         </p>
       </div>
+
       <div class="field">
         <p class="control has-icons-left">
-          <input id='password-field' class="input" type="password" placeholder="Password">
+          <input id='create_password-field' class="input" type="password" placeholder="Password">
           <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
         </p>
       </div>
+
       <div class="control">
-          <label class="radio">
-              <input type="radio" name="user_checkbox" id="user_checkbox">
-                CheapTix User
-          </label>
-          <label class="radio">
-              <input type="radio" name="business_checkbox" id="business_checkbox">
-                CheapTix Business Partner
-            </label>
-          </div>
-          <p>*Want to do business with us? call (777) 777-7777</p>
+        <label class="radio">
+          <input type="radio" name="answer">
+          CheapTix User
+        </label>
+        <label class="radio">
+          <input type="radio" name="answer">
+          CheapTix Business
+        </label>
+        <p>*Want to do business with us? call (777) 777-7777</p>
+      </div>
+
       <div class="field is-grouped is-grouped-centered">
         <p class="control">
-          <input id="submit-form" type='submit' class="button is-primary" value="Submit" />
+          <input id="create_submit-form" type='submit' class="button is-primary" value="Submit" />
         </p>
         <p class="control">
-          <input id="reset-form" type="reset" class="button is-light" value="Cancel" />
+          <input id="create_reset-form" type="reset" class="button is-light" value="Cancel" />
           </a>
         </p>
       </div>
-    </form><br />
-  </div>
-  <div id='users' class='columns'>
-  </div>
-</body>
 
+    </form>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-<!-- <form>
-  <div class="container center_div">
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" name="email" placeholder="Enter email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password" minlength="8" required>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" name="business_checkbox">
-    <label class="form-check-label" for="exampleCheck1">Business Partner</label>
-  </div>
-  <a href="/" class="btn btn-primary">Login</a>
-</div>
-</form>
-<br>
-<h4>Create Account</h4>
-<form>
-  <div class="container center_div">
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" name="email" placeholder="Enter email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group .form-inline">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password" minlength="8" required>
-    <small id="emailHelp" class="form-text text-muted">Must be 8 characters or more</small>
-  </div>
-  <a href="/" class="btn btn-primary">Create Account</a>
-</form> -->
