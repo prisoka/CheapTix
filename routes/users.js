@@ -52,7 +52,7 @@ router.post('/', (req, res, next) => {
   })
 })
 
-//update one event <<<NOK>>>
+//update one event <<<OK>>>
 router.put('/:userid', (req, res, next) => {
   console.log('THE PUT ROUTE');
   knex('users')
@@ -63,13 +63,10 @@ router.put('/:userid', (req, res, next) => {
     if(data.length) {
       knex('users')
       .update({
-        user_id: req.body.user_id,
-        event_type: req.body.event_type,
-        event_name: req.body.event_name,
-        event_time: req.body.event_time,
-        event_date: req.body.event_date,
-        available_tickets: req.body.available_tickets,
-        description: req.body.description
+        user_type: req.body.user_type,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
       })
       .where('id', req.params.userid)
       .returning('*')
