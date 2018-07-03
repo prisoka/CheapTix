@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // function to create DOM elements to populate cards in the index
 function addEventToDom(event) {
-	const eventCard = `
+	const eventCardHTML = `
 	<div class="column">
 			<div class="card">
 					<div class="card-image">
@@ -32,13 +32,13 @@ function addEventToDom(event) {
 					<div class="card-content">
 							<div class="media">
 									<div class="media-content">
-											<p class="title is-4">{{event.event_name}}</p>
-											<p class="subtitle is-6">{{event.event_date}}</p>
+											<p class="title is-4">${event.event_name}</p>
+											<p class="subtitle is-6">${event.event_date}</p>
 									</div>
 							</div>
 
 							<div class="content">
-									{{event.description}}
+									${event.description}
 							</div>
 							<div class="content">
 									<a class="button">Buy Tickets</a>
@@ -47,10 +47,8 @@ function addEventToDom(event) {
 			</div>
 	</div>
 	`
-	const template = Handlebars.compile(eventCard);
-	const html = template({event: event});
-	console.log(html);
+	console.log(eventCardHTML);
 
 	const eventContainer = document.getElementById('eventContainer');
-	eventContainer.innerHTML = html;
+	eventContainer.innerHTML += eventCardHTML;
 }
