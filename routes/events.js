@@ -26,7 +26,7 @@ router.get('/:userid', (req, res, next) => {
   })
 })
 
-//create one event
+//create one event <<<NOK>>>
 router.post('/', (req, res, next) => {
   knex('events')
   .insert({
@@ -46,7 +46,7 @@ router.post('/', (req, res, next) => {
   })
 })
 
-//update one event
+//update one event <<<NOK>>>
 router.put('/:userid', (req, res, next) => {
   console.log('THE PUT ROUTE');
   knex('events')
@@ -69,7 +69,7 @@ router.put('/:userid', (req, res, next) => {
   })
 })
 
-// DELETE a specific event
+// DELETE a specific event <<<NOK>>>
 router.delete('/:userid', (req, res, next) => {
   // lookup a userid in the DB, if exists, delete it
   knex('events')
