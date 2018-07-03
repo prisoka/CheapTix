@@ -2,6 +2,7 @@
 Q2 Project- full stack app
 
 ## Deployed URL: 
+https://cheaptix.herokuapp.com/
 
 ## What are you looking at? 
 This is our Q2 Full Stack Project, at Galvanize Web Development Immersive Course.
