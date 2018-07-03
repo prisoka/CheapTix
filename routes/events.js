@@ -16,44 +16,58 @@ router.get('/', function(req, res, next) {
   })
 });
 
-// router.get('/new', (req, res, next) => {
-//   res.render('new');
-// });
+// get one event
+router.get('/:userid', (req, res, next) => {
+  knex('events')
+  .where('id', req.params.userid)
+  .then((data) => {
+    console.log('the specific user', data)
+    res.send(data)
+  })
+})
 
-// router.get('/:id', (req, res) => {
-//   const id = req.params.id;
-//   respondAndRenderTodo(id, res, 'single');
-// });
-//
-//
-// router.get('/:id/edit', (req, res) => {
-//   const id = req.params.id;
-//   respondAndRenderTodo(id, res, 'edit');
-// })
-//
-// router.post('/', (req, res) => {
-//   validateTodoRenderError(req, res, (events) => {
-//     events.date = new Date();
-//     knex('events')
-//       .insert(events, 'id')
-//       .then(ids => {
-//         const id = ids[0];
-//         res.redirect(`/events/${id}`);
-//       });
-//   });
-// });
-//
-// router.put('/:id', (req, res) => {
-//   validateTodoRenderError(req, res, (events) => {
-//     const id = req.params.id;
-//     knex('events')
-//       .where('id', id)
-//       .update(events, 'id')
-//       .then(() => {
-//         res.redirect(`/events/${id}`);
-//       });
-//   });
-// });
+//create one event
+router.post('/', (req, res, next) => {
+  knex('events')
+  .insert({
+    user_id: req.body.users.id,
+    event_type: req.body.event_type,
+    event_name: req.body.event_date,
+    // event_time: req.body.event_time,
+    // event_date: req.body.event_date,
+    available_tickets: req.body.available_tickets,
+    description: req.body.description
+  })
+  .returning('*')
+  .then((result) => {
+    let insertedRecord = result[0]
+    console.log('data', insertedRecord)
+    res.send(insertedRecord)
+  })
+})
+
+//update one event
+router.put('/:userid', (req, res, next) => {
+  console.log('THE PUT ROUTE');
+  knex('events')
+  .where('id', req.params.userid)
+  .then((data) => {
+    console.log('the specific user', data)
+
+    if(data.length) {
+      knex('events')
+      .update({
+        name: req.body.name
+      })
+      .where('id', req.params.userid)
+      .returning('*')
+      .then((updateResult) => {
+        console.log('updateResult', updateResult)
+        res.send(updateResult[0])
+      })
+    }
+  })
+})
 //
 // router.delete('/:id', (req, res) => {
 //   const id = req.params.id;
@@ -71,13 +85,21 @@ router.get('/', function(req, res, next) {
 //     });
 //   }
 // });
+
+// router.get('/new', (req, res, next) => {
+//   res.render('new');
+// });
 //
-// function validateTodoRenderError(req, res, callback) {
-//   if(validTodo(req.body)) {
+// function validateEventRenderError(req, res, callback) {
+//   if(validEvent(req.body)) {
 //     const events = {
-//       title: req.body.title,
-//       description: req.body.description,
-//       priority: req.body.priority
+//       userId: req.body.users.id,
+//       event_type: req.body.event_type,
+//       event_date: req.body.event_date,
+//       event_time: req.body.event_time,
+//       event_date: req.body.event_date,
+//       available_tickets: req.body.available_tickets,
+//       description: req.body.description
 //     };
 //
 //     callback(events);
@@ -106,9 +128,9 @@ router.get('/', function(req, res, next) {
 //   }
 // }
 //
-// function validTodo(events){
-//   return typeof events.title === 'string' &&
-//   events.title.trim() !== '' &&
+// function validEvent(events){
+//   return typeof events.name === 'string' &&
+//   events.type === '' &&
 //   typeof events.priority !== 'undefined'
 //   //!isNan(Number(events.priority));
 // }
