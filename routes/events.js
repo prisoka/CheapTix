@@ -69,23 +69,31 @@ router.put('/:userid', (req, res, next) => {
   })
 })
 
-// DELETE a specific event <<<NOK>>>
-router.delete('/:userid', (req, res, next) => {
-  // lookup a userid in the DB, if exists, delete it
+// DELETE a specific event <<<OK>>>
+router.delete('/:id', function(req, res, next) {
+  const eventId = req.params.id;
+
   knex('events')
-  .where('id', req.params.userid)
-  .del()
-  .then((result) => {
-    console.log('result', result)
-    if( result ) {
-      res.send({ 'success': result })
-    } else {
-      throw new Error('Couldnt find the event to delete')
-    }
-  })
-  .catch((err) => {
-    next(err)
-  })
+    .where('id', eventId)
+    //.first()
+    .then((row) => {
+      console.log(eventId)
+      console.log(row)
+      if(!row) return next()
+      knex('events')
+        .del()
+        .where('id', eventId)
+        .then(() => {
+          res.send(`ID ${eventId} Deleted`)
+        })
+        .catch((err) => {
+          console.log("Hey, could not delete!")
+          next(err)
+        })
+    })
+    .catch((err) => {
+      next(err)
+    })
 })
 
 module.exports = router;
