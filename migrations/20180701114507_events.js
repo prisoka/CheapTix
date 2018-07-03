@@ -1,5 +1,6 @@
 // id
 // user_id - integer FK
+// event_name - string (NN)
 // event_type - text (NN)
 // event_name - string (NN)
 // event_date -  (NN)
@@ -7,6 +8,12 @@
 // available_tickets - integer (NN)
 // order_id - integer FK
 // description - text
+//state - string
+//city/town -string
+//address line1 -text
+//address line2 -text
+//zip/postalcode -integer
+
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('events', (table) => {
@@ -18,6 +25,12 @@ exports.up = function(knex, Promise) {
     table.time('event_time');
     table.integer('available_tickets').notNullable();
     table.text('description').notNullable();
+    table.string('state');
+    table.string('city');
+    table.text('address1');
+    table.text('address2');
+    table.integer('zip');
+
     table.timestamps(true, true);
   })
 };

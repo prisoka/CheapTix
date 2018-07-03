@@ -48,7 +48,12 @@ router.post('/', (req, res, next) => {
     event_time: req.body.event_time,
     event_date: req.body.event_date,
     available_tickets: req.body.available_tickets,
-    description: req.body.description
+    description: req.body.description,
+    state: req.body.state,
+    city: req.body.city,
+    address1: req.body.address1,
+    address2: req.body.address2,
+    zip: req.body.zip
   })
   .returning('*')
   .then((result) => {
@@ -84,7 +89,12 @@ router.put('/:userid', (req, res, next) => {
         event_time: req.body.event_time,
         event_date: req.body.event_date,
         available_tickets: req.body.available_tickets,
-        description: req.body.description
+        description: req.body.description,
+        state: req.body.state,
+        city: req.body.city,
+        address1: req.body.address1,
+        address2: req.body.address2,
+        zip: req.body.zip
       })
       .where('id', req.params.userid)
       .returning('*')
