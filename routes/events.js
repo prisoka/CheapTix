@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   })
 });
 
-// get one event
+// get ONE event
 router.get('/:userid', (req, res, next) => {
   knex('events')
   .where('id', req.params.userid)
@@ -30,7 +30,7 @@ router.get('/:userid', (req, res, next) => {
 router.post('/', (req, res, next) => {
   knex('events')
   .insert({
-    user_id: req.body.users.id,
+    user_id: req.body.user_id,
     event_type: req.body.event_type,
     event_name: req.body.event_date,
     // event_time: req.body.event_time,
@@ -68,75 +68,24 @@ router.put('/:userid', (req, res, next) => {
     }
   })
 })
-//
-// router.delete('/:id', (req, res) => {
-//   const id = req.params.id;
-//   if(validId(id)) {
-//     knex('events')
-//       .where('id', id)
-//       .del()
-//       .then(() => {
-//         res.redirect('/events');
-//       });
-//   } else {
-//     res.status( 500);
-//     res.render('error', {
-//       message:  'Invalid id'
-//     });
-//   }
-// });
 
-// router.get('/new', (req, res, next) => {
-//   res.render('new');
-// });
-//
-// function validateEventRenderError(req, res, callback) {
-//   if(validEvent(req.body)) {
-//     const events = {
-//       userId: req.body.users.id,
-//       event_type: req.body.event_type,
-//       event_date: req.body.event_date,
-//       event_time: req.body.event_time,
-//       event_date: req.body.event_date,
-//       available_tickets: req.body.available_tickets,
-//       description: req.body.description
-//     };
-//
-//     callback(events);
-//   } else {
-//     res.status( 500);
-//     res.render('error', {
-//       message:  'Invalid events'
-//     });
-//   }
-// }
-//
-// function respondAndRenderTodo(id, res, viewName) {
-//   if(validId(id)) {
-//     knex('events')
-//       .select()
-//       .where('id', id)
-//       .first()
-//       .then(events => {
-//         res.render(viewName, events);
-//       });
-//   } else {
-//     res.status( 500);
-//     res.render('error', {
-//       message:  'Invalid id'
-//     });
-//   }
-// }
-//
-// function validEvent(events){
-//   return typeof events.name === 'string' &&
-//   events.type === '' &&
-//   typeof events.priority !== 'undefined'
-//   //!isNan(Number(events.priority));
-// }
-//
-// function validId(id) {
-//   return !isNaN(id);
-// }
+// DELETE a specific event
+router.delete('/:userid', (req, res, next) => {
+  // lookup a userid in the DB, if exists, delete it
+  knex('events')
+  .where('id', req.params.userid)
+  .del()
+  .then((result) => {
+    console.log('result', result)
+    if( result ) {
+      res.send({ 'success': result })
+    } else {
+      throw new Error('Couldnt find the event to delete')
+    }
+  })
+  .catch((err) => {
+    next(err)
+  })
+})
 
 module.exports = router;
