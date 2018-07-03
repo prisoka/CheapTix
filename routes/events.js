@@ -37,7 +37,7 @@ router.get('/:userid', (req, res, next) => {
 // table.text('description').notNullable();
 
 
-//create one event <<<NOK>>>
+//create one event <<<OK>>>
 router.post('/', (req, res, next) => {
   console.log('REQ.BODY', req.body);
   knex('events')
@@ -59,6 +59,14 @@ router.post('/', (req, res, next) => {
   })
 })
 
+// table.integer('user_id').references('users.id');
+// table.text('event_type').notNullable();
+// table.text('event_name').notNullable();
+// table.date('event_date').notNullable();
+// table.time('event_time').notNullable();
+// table.integer('available_tickets').notNullable();
+// table.text('description').notNullable();
+
 //update one event <<<NOK>>>
 router.put('/:userid', (req, res, next) => {
   console.log('THE PUT ROUTE');
@@ -70,7 +78,13 @@ router.put('/:userid', (req, res, next) => {
     if(data.length) {
       knex('events')
       .update({
-        name: req.body.name
+        user_id: req.body.user_id,
+        event_type: req.body.event_type,
+        event_name: req.body.event_name,
+        event_time: req.body.event_time,
+        event_date: req.body.event_date,
+        available_tickets: req.body.available_tickets,
+        description: req.body.description
       })
       .where('id', req.params.userid)
       .returning('*')
