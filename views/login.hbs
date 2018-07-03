@@ -12,101 +12,109 @@
   </head>
 
   <body>
-    <h3>Login</h3>
-    <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
-      <!-- <div id='create-user'> -->
+    <section class="section columns">
+      <div class="container has-text-centered column is-10 is-offset-1">
+      <h2 class="title">Login</h2>
+        <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input id='login_email-field' class="input" type="email" placeholder="Email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
 
-      <div class="field">
-        <p class="control has-icons-left has-icons-right">
-          <input id='login_email-field' class="input" type="email" placeholder="Email">
-          <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-          <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-        </p>
-      </div>
-
-      <div class="field">
-        <p class="control has-icons-left">
-          <input id='login_password-field' class="input" type="password" placeholder="Password">
-          <span class="icon is-small is-left">
+          <div class="field">
+            <p class="control has-icons-left">
+              <input id='login_password-field' class="input" type="password" placeholder="Password">
+              <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
-            </span>
-        </p>
-      </div>
+              </span>
+            </p>
+          </div>
 
-      <div>
-        <label class="checkbox">
-            <input type="checkbox">
+          <div class="field is-grouped is-grouped-centered">
+            <label class="checkbox">
+              <input type="checkbox">
               Business Partner
-          </label>
+            </label>
+          </div>
+
+          <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+              <input id="login_submit-form" type='submit' class="button is-link" value="Login" />
+            </p>
+            <p class="control">
+              <input id="login_reset-form" type="reset" class="button is-light" value="Cancel" />
+            </p>
+          </div>
+        </form>
       </div>
+    </section>
 
-      <div class="field is-grouped is-grouped-centered">
-        <p class="control">
-          <input id="login_submit-form" type='submit' class="button is-primary" value="Submit" />
-        </p>
-        <p class="control">
-          <input id="login_reset-form" type="reset" class="button is-light" value="Cancel" />
-          </a>
-        </p>
-      </div>
+    <section class="section columns">
+      <div class="container has-text-centered column is-10 is-offset-1">
+      <h2 class="title">Create User Account</h2>
+        <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input id='username' class="input" type="text" placeholder="Username">
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input id='login_email-field' class="input" type="email" placeholder="Email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
 
-    </form>
-
-    <h3>Create Account</h3>
-    <form onsubmit="CALL FUNCTION FROM LOGIN.JS">
-      <div class="field">
-        <p class="control has-icons-left has-icons-right">
-          <input id='username' class="input" type="text" placeholder="Username">
-        </p>
-      </div>
-
-      <div class="field">
-        <p class="control has-icons-left has-icons-right">
-          <input id='create_email-field' class="input" type="email" placeholder="Email">
-          <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-          <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-        </p>
-      </div>
-
-      <div class="field">
-        <p class="control has-icons-left">
-          <input id='create_password-field' class="input" type="password" placeholder="Password">
-          <span class="icon is-small is-left">
+          <div class="field">
+            <p class="control has-icons-left">
+              <input id='login_password-field' class="input" type="password" placeholder="Password">
+              <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
-            </span>
-        </p>
-      </div>
+              </span>
+            </p>
+          </div>
 
-      <div class="control">
-        <label class="radio">
-          <input type="radio" name="answer">
-          CheapTix User
-        </label>
-        <label class="radio">
-          <input type="radio" name="answer">
-          CheapTix Business
-        </label>
-        <p>*Want to do business with us? call (777) 777-7777</p>
-      </div>
+          <!-- <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="answer" id="user_checkbox">
+                CheapTix User
+              </label>
+              <label class="radio">
+                <input type="radio" name="answer" id="business_checkbox">
+                CheapTix Business
+              </label>
+            </div>
+          </div> -->
 
-      <div class="field is-grouped is-grouped-centered">
-        <p class="control">
-          <input id="create_submit-form" type='submit' class="button is-primary" value="Submit" />
-        </p>
-        <p class="control">
-          <input id="create_reset-form" type="reset" class="button is-light" value="Cancel" />
-          </a>
-        </p>
+          <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+              <input id="create_submit-form" type='submit' class="button is-link" value="Create" />
+            </p>
+            <p class="control">
+              <input id="create_reset-form" type="reset" class="button is-light" value="Cancel" />
+            </p>
+          </div>
+          <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+              <p>* Want to do <b>business</b> with us? Call (777) 777-7777</p>
+            </div>
+          </div>
+        </form>
       </div>
-
-    </form>
+    </section>
   </body>
+
 </html>

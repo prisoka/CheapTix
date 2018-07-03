@@ -6,9 +6,9 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('orders', (table) => {
-    table.increments();
-    table.integer('user_id').notNullable().references('users.id');
-    table.integer('event_id').notNullable().references('events.id');
+    table.increments().primary();
+    table.integer('user_id').notNullable().references('users.id').onDelete('CASCADE').index();
+    table.integer('event_id').notNullable().references('events.id').onDelete('CASCADE').index();
     table.timestamps(true, true);
   })
 };
