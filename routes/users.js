@@ -84,7 +84,6 @@ router.delete('/:id', function(req, res, next) {
 
   knex('users')
     .where('id', eventId)
-    //.first()
     .then((row) => {
       console.log(eventId)
       console.log(row)
