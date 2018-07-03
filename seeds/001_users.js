@@ -8,5 +8,10 @@ exports.seed = function(knex, Promise) {
         {id: 1, user_type: 'business', email: 'pete@gmail.com', username: 'pete', password: '1234'},
         {id: 2, user_type: 'customer', email: 'justin@gmail.com', username: 'justin', password: '5678'}
       ]);
-    });
+    })
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));"
+      )
+    })
 };
