@@ -8,8 +8,22 @@ const knex = require('../db/knex');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   knex('events')
-  .then((data) => {
-    res.status(200).send(data); // 200 = ok
+  .then((events) => {
+    let newEventsArr = events.map((event) => {
+      delete event.created_at;
+      delete event.updated_at;
+      delete event.address1;
+      delete event.address2;
+      delete event.state;
+      delete event.city;
+      delete event.zip;
+      delete event.event_date;
+      delete event.event_time;
+
+      // console.log('event is', event)
+      return event;
+    })
+    res.status(200).send(newEventsArr); // 200 = ok
   })
   .catch((err) => {
     console.log('err', err);
@@ -21,9 +35,23 @@ router.get('/', function(req, res, next) {
 router.get('/:userid', (req, res, next) => {
   knex('events')
   .where('id', req.params.userid)
-  .then((data) => {
-    console.log('the specific user', data)
-    res.send(data)
+  .then((events) => {
+    let newEvent = events.map((event) => {
+      delete event.created_at;
+      delete event.updated_at;
+      delete event.address1;
+      delete event.address2;
+      delete event.state;
+      delete event.city;
+      delete event.zip;
+      delete event.event_date;
+      delete event.event_time;
+
+      // console.log('event is', event)
+      return event;
+    })
+    console.log('the specific user', newEvent)
+    res.send(newEvent)
   })
 })
 
