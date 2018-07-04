@@ -1,9 +1,20 @@
-function createUserFormSubmit(user){
-  user.preventDefault(); // prevent the webpage from refreshing
+window.onload = function() {
+  console.log('hellooooo!!!')
+  createUser(event);
+}
 
-  let username = document.getElementById('username').value;
-	let email = document.getElementById('login_email-field').value;
-  let password = document.getElementById('login_password-field').value;
+const apiUrl = 'http://localhost:3000';
+const usersUrl = apiUrl + '/users';
+
+
+function createUser(event){
+  console.log('HEY!')
+
+  event.preventDefault(); // prevent the webpage from refreshing
+
+  let username = document.getElementById('create_username').value;
+  let email = document.getElementById('create_email_field').value;
+  let password = document.getElementById('create_password_field').value;
 
   // fecth makes a network request
   fetch(usersUrl, {
@@ -12,9 +23,5 @@ function createUserFormSubmit(user){
     body: JSON.stringify({username: username, email: email, password: password})
   })
   .then(response => response.json())
-  .then(json => getUsers())
-  .then(users => setUsers(users))
-  .catch(error => console.log(error)
-
-  console.log('HEY!')
+  .catch(error => console.log(error))
 }
