@@ -15,6 +15,7 @@ function createUser(event){
   let username = document.getElementById('create_username').value;
   let email = document.getElementById('create_email_field').value;
   let password = document.getElementById('create_password_field').value;
+  // <<< come back TO HASH PASSWORD!!! >>>
 
   // fecth makes a network request
   fetch(usersUrl, {
