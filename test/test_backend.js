@@ -49,7 +49,7 @@ describe('GET /users/:id', () => {
     .get('/users/1')
     .end((err, res) => {
       expect(res.body).to.deep.equal([{
-
+        id: 1,
         user_type: 'business',
         email: 'pete@gmail.com',
         username: 'pete',
@@ -60,9 +60,9 @@ describe('GET /users/:id', () => {
 });
 });
 
-xdescribe('POST /users', () => {
+describe('POST /users', () => {
 
-  var newUser = {
+  let newUser = {
     user: {
       user_type: 'business',
       email: 'colton@gmail.com',

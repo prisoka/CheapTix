@@ -29,8 +29,14 @@ router.get('/:userid', (req, res, next) => {
   knex('users')
   .where('id', req.params.userid)
   .then((user) => {
-    console.log('the specific user', user)
-    res.send(user)
+    let newUserArr = user.map((user) => {
+      delete user.created_at;
+      delete user.updated_at;
+      // console.log('user is', user)
+      return user;
+    })
+    console.log('the specific user', newUserArr)
+    res.send(newUserArr)
   })
 })
 
