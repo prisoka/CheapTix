@@ -8,8 +8,15 @@ const knex = require('../db/knex');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   knex('users')
-  .then((data) => {
-    res.status(200).send(data); // 200 = ok
+  .then((users) => {
+    // obj remove keys: created_at and updated_at
+    let newUsersArr = users.map((user) => {
+      delete user.created_at;
+      delete user.updated_at;
+      // console.log('user is', user)
+      return user;
+    })
+    res.status(200).send(newUsersArr); // 200 = ok
   })
   .catch((err) => {
     console.log('err', err);
@@ -21,9 +28,9 @@ router.get('/', function(req, res, next) {
 router.get('/:userid', (req, res, next) => {
   knex('users')
   .where('id', req.params.userid)
-  .then((data) => {
-    console.log('the specific user', data)
-    res.send(data)
+  .then((user) => {
+    console.log('the specific user', user)
+    res.send(user)
   })
 })
 

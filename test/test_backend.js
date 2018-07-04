@@ -5,27 +5,6 @@ const expect = require('chai').expect;
 const app = require('../app');
 const knex = require('../db/knex');
 
-// beforeEach(done => {
-//   Promise.all([
-//     knex('users').insert({user_type: 'business', email: 'pete@gmail.com', username: 'pete', password: '1234'}),
-//     knex('users').insert({user_type: 'customer', email: 'justin@gmail.com', username: 'justin', password: '5678'})
-//   ])
-//   .then(() => done())
-//   .catch((err)=>{
-//     console.log(err)
-//   })
-// });
-//
-// afterEach((done) => {
-//   knex('users')
-//   .del()
-//   .then(() => {
-//     return done()
-//   })
-//   .catch((err) => {
-//     console.log(err)
-//   })
-// })
 
 describe('GET /users', () => {
     it('responds with JSON', done => {
@@ -39,29 +18,25 @@ describe('GET /users', () => {
     request(app)
       .get('/users')
       .end((err, res) => {
-        expect(res.body).to.equal([{
+        expect(res.body).to.deep.equal([{
           id: 1,
           user_type: 'business',
           email: 'pete@gmail.com',
           username: 'pete',
           password: '1234'
-          //created_at: 2018-07-03 20:02:52.276169-07,
-          //updated_at: '2018-07-03 20:02:52.276169-07'
         }, {
           id: 2,
           user_type: 'customer',
           email: 'justin@gmail.com',
           username: 'justin',
-          password: '5678',
-          //create_at: '2018-07-03 20:02:52.276169-07',
-          //updated_at:'2018-07-03 20:02:52.276169-07'
+          password: '5678'
         }]);
         done();
       });
   });
 });
 
-xdescribe('GET /users/:id', () => {
+describe('GET /users/:id', () => {
   it('responds with JSON', done => {
       request(app)
           .get('/users')
@@ -74,6 +49,7 @@ xdescribe('GET /users/:id', () => {
     .get('/users/1')
     .end((err, res) => {
       expect(res.body).to.deep.equal([{
+
         user_type: 'business',
         email: 'pete@gmail.com',
         username: 'pete',
