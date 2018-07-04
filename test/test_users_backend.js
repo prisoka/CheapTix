@@ -16,7 +16,7 @@ beforeEach(done => {
   })
 });
 
-
+// GET ALL
 describe('GET /users', () => {
     it('responds with JSON', done => {
         request(app)
@@ -47,6 +47,7 @@ describe('GET /users', () => {
   });
 });
 
+// GET ONE
 describe('GET /users/:id', () => {
   it('responds with JSON', done => {
       request(app)
@@ -91,7 +92,6 @@ describe('POST /users', () => {
     password: '4444'
   }
 
-
   it('responds with JSON', done => {
     request(app)
       .post('/users')
@@ -116,8 +116,48 @@ describe('POST /users', () => {
   });
 });
 
-xdescribe('PUT /users/:id', () => {
+// update one
+describe('PUT /users/:id', () => {
+
+  var updatedUser = {
+    user_type: 'business',
+    email: 'pete@gmail.com',
+    username: 'pete_pete',
+    password: '1234'
+  };
+
+  it('responds with JSON', done => {
+    request(app)
+      .put('/users/1')
+      .type('form')
+      .send(updatedUser)
+      .expect('Content-Type', /json/)
+      .expect(200, done);
+  });
+
+  it('updates the user in the database', done => {
+    request(app)
+      .put('/users/1')
+      .type('form')
+      .send(updatedUser)
+      .end((err, res) => {
+        knex('users').where('id', 1).first().then(user => {
+          expect(user.user_type).to.equal(updatedUser.user_type);
+          expect(user.email).to.equal(updatedUser.email);
+          expect(user.username).to.equal(updatedUser.username);
+          expect(user.password).to.equal(updatedUser.password);
+          done();
+        });
+      });
+  });
 });
 
-xdescribe('DELETE /users/:id', () => {
+// delete one
+describe('Delete /users/:id', () => {
+  it('should return status 200 after DELETING given id', done => {
+      request(app)
+          .get('/users/1')
+          .expect('Content-Type', /json/)
+          .expect(200, done);
+  });
 });
