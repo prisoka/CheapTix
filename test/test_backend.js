@@ -5,6 +5,17 @@ const expect = require('chai').expect;
 const app = require('../app');
 const knex = require('../db/knex');
 
+beforeEach(done => {
+  Promise.all([
+    knex('users').insert({id:1, user_type: 'business', email: 'pete@gmail.com', username: 'pete', password: '1234'}),
+    knex('users').insert({id:2, user_type: 'customer', email: 'justin@gmail.com', username: 'justin', password: '5678'})
+  ])
+  .then(() => done())
+  .catch((err)=>{
+    console.log(err)
+  })
+});
+
 
 describe('GET /users', () => {
     it('responds with JSON', done => {
@@ -57,19 +68,29 @@ describe('GET /users/:id', () => {
       }]);
       done();
     });
+  });
 });
+
+afterEach((done) => {
+  knex('users')
+  .del()
+  .then(() => {
+    return done()
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 });
 
 describe('POST /users', () => {
 
   let newUser = {
-    user: {
-      user_type: 'business',
-      email: 'colton@gmail.com',
-      username: 'colton',
-      password: '4444'
-    }
-  };
+    user_type: 'business',
+    email: 'colton@gmail.com',
+    username: 'colton',
+    password: '4444'
+  }
+
 
   it('responds with JSON', done => {
     request(app)
@@ -86,14 +107,13 @@ describe('POST /users', () => {
       .type('form')
       .send(newUser)
       .end((err, res) => {
-        knex('users').select().then(users => {
-          //expect(users).to.have.lengthOf(4);
-          //expect(users).to.deep.include(new.user);
+        knex('users')
+        .select()
+        .then(users => {
           done();
         });
       });
   });
-
 });
 
 xdescribe('PUT /users/:id', () => {
