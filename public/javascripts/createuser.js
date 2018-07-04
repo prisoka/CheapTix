@@ -24,5 +24,9 @@ function createUser(event){
     body: JSON.stringify({username: username, email: email, password: password})
   })
   .then(response => response.json())
+  .then(() => {
+      console.log('CLEAR ME!')
+      document.getElementById("create_user_form").reset();
+  })
   .catch(error => console.log(error))
 }
