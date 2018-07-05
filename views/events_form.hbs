@@ -22,14 +22,14 @@
       </div>
     </div>
 
-    <form id="create_event_form" class="form-horizontal" onsubmit="createEvent(event)">
+    <form id="create_event_form" class="form-horizontal">
       <!-- <fieldset> -->
 
         <!-- Integer input (mocking user ID TO insert event)-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_name">USER ID</label>
           <div class="col-md-6">
-            <input id="user_id_createevent" type="text" class="form-control" placeholder="your user ID number">
+            <input id="user_id_createevent" name="user_id_createevent" type="text" class="form-control" placeholder="your user ID number">
           </div>
         </div>
 
@@ -37,7 +37,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_name">Name of the event</label>
           <div class="col-md-6">
-            <input id="event_name" type="text" class="form-control" placeholder="e.g Summer Solstice Party!">
+            <input id="event_name" name="event_name" type="text" class="form-control" placeholder="e.g Summer Solstice Party!">
           </div>
         </div>
 
@@ -45,7 +45,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_type">Type of event</label>
           <div class="col-md-6">
-            <input id="event_type" type="text" class="form-control" placeholder="e.g Party, Movies, Street Market">
+            <input id="event_type" name="event_type" type="text" class="form-control" placeholder="e.g Party, Movies, Street Market">
           </div>
         </div>
 
@@ -53,7 +53,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="available_tickets">Tickets available</label>
           <div class="col-md-6">
-            <input id="available_tickets" type="text" class="form-control" placeholder="number of tickets available">
+            <input id="available_tickets" name="available_tickets" type="text" class="form-control" placeholder="number of tickets available">
           </div>
         </div>
 
@@ -61,7 +61,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_description">Event description</label>
           <div class="col-md-6">
-            <textarea id="event_description"  class="form-control" rows="5" type="text" class="form-control" placeholder="place description here"></textarea>
+            <textarea id="event_description" name="event_description" class="form-control" rows="5" type="text" class="form-control" placeholder="place description here"></textarea>
           </div>
         </div>
 
@@ -122,7 +122,7 @@
           <label class="col-md-4 control-label" for="address1"></label>
           <div class="col-md-8">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <input class="form-check-input" name="invalidCheck" type="checkbox" value="" id="invalidCheck" required>
               <label class="form-check-label" for="invalidCheck">
                   I Agree to terms and conditions
                 </label>
@@ -135,7 +135,7 @@
           <label class="col-md-4 control-label" for="address1"></label>
           <div class="col-md-8">
             <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-            <button type="cancel" class="btn btn-primary">Cancel</button>
+            <button type="cancel" name="cancel" class="btn btn-primary">Cancel</button>
           </div>
         </div>
         </div>

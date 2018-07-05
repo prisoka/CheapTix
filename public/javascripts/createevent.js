@@ -1,51 +1,43 @@
 window.onload = function() {
   console.log('I am the callback(s)')
-  createEvent(event);
+  // createEvent(event);
 }
 
 const apiUrl = 'http://localhost:3000';
 const eventsUrl = apiUrl + '/events';
 
+document.getElementById('create_event_form').addEventListener("submit", (ev) => {
+  ev.preventDefault()
+  createEvent(ev)
+})
 
-function createEvent(event){
-  console.log('I am going to create an event!')
+function createEvent(ev){
+  // console.log('I am going to create an event!')
 
-  event.preventDefault(); // prevent the webpage from refreshing
+  var form = ev.target
+  // console.log('elements', form.elements)
 
-  let user_id = document.getElementById('user_id_createevent').value;
-  let event_type = document.getElementById('event_type').value;
-  let event_name = document.getElementById('event_name').value;
-  let available_tickets = document.getElementById('available_tickets').value;
-  let event_description = document.getElementById('event_description').value;
-  let state = document.getElementById('state').value;
-  let city = document.getElementById('city').value;
-  let address1 = document.getElementById('address1').value;
-  let address2 = document.getElementById('address2').value;
-  let zip = document.getElementById('zip').value;
+  var bodyObj = {}
+  for( var i=0; i<form.elements.length; i++ ) {
+    var element = form.elements[i]
+    bodyObj[element.name] = element.value
+  }
 
-  // fecth makes a network request
+  delete bodyObj.invalidCheck;
+  delete bodyObj.cancel;
+  delete bodyObj.submit;
+
+  // console.log('bodyObj', bodyObj);
+
   fetch(eventsUrl, {
     method: 'POST', // post HTTP method
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      user_id: user_id_createevent,
-      event_type: event_type,
-      event_name: event_name,
-      // event_date: event_date,
-      // event_time: event_time,
-      available_tickets: available_tickets,
-      description: event_description,
-      state: state,
-      city: city,
-      address1: address1,
-      address2: address2,
-      zip: zip
-    })
+    body: JSON.stringify(bodyObj)
   })
   .then(response => response.json())
-  // .then(() => {
-  //     console.log('CLEAR ME!')
-  //     document.getElementById("create_event_form").reset();
-  // })
+  .then(() => {
+      console.log('CLEAR ME!')
+      document.getElementById("create_event_form").reset();
+  })
   .catch(error => console.log(error))
 }
