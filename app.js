@@ -13,6 +13,7 @@ const loginRouter = require('./routes/login');
 const indexBusiness = require('./routes/index_business');
 const eventSubmissionRouter = require('./routes/submitevent');
 const createUserRouter = require('./routes/createuser');
+const orderRouter = require('./routes/order');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/login', loginRouter);
 app.use('/index_business', indexBusiness);
 app.use('/submitevent', eventSubmissionRouter);
 app.use('/createuser', createUserRouter);
+app.use('/order', orderRouter);
 
 
 // catch 404 and forward to error handler
