@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script type="text/javascript" src="javascripts/main_index_business.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
 
 </head>
 
@@ -50,7 +51,7 @@
             <h2 class="title">Hey Partner, welcome to CheapTix!</h2>
             <p>Here is a list of what you've already added:</p>
 
-            <div id="eventContainer" class="columns is-centered" style="padding: 2rem">
+            <div id="eventContainer" class="columns is-centered" style="padding: 2rem" onsubmit="deleteEvent(event)">
             </div>
         </div>
         </div>
