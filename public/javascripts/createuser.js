@@ -21,7 +21,10 @@ function createUser(event){
   fetch(usersUrl, {
     method: 'POST', // post HTTP method
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({username: username, email: email, password: password})
+    body: JSON.stringify({
+      username: username,
+      email: email,
+      password: password})
   })
   .then(response => response.json())
   .then(() => {

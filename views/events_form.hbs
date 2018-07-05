@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../stylesheets/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../javascripts/moment.js"></script>
+    <script type="text/javascript" src="../javascripts/createevent.js" defer></script>
   </head>
   <body>
 
@@ -22,14 +22,22 @@
       </div>
     </div>
 
-    <form class="form-horizontal">
-      <fieldset>
+    <form id="create_event_form" class="form-horizontal" onsubmit="createEvent(event)">
+      <!-- <fieldset> -->
+
+        <!-- Integer input (mocking user ID TO insert event)-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="event_name">USER ID</label>
+          <div class="col-md-6">
+            <input id="user_id_createevent" type="text" class="form-control" placeholder="your user ID number">
+          </div>
+        </div>
 
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_name">Name of the event</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="event_name" placeholder="e.g Summer Solstice Party!">
+            <input id="event_name" type="text" class="form-control" placeholder="e.g Summer Solstice Party!">
           </div>
         </div>
 
@@ -37,53 +45,15 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_type">Type of event</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="event_type" placeholder="e.g Party, Movies, Street Market">
+            <input id="event_type" type="text" class="form-control" placeholder="e.g Party, Movies, Street Market">
           </div>
-        </div>
-
-        <!-- date input -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="event_type">Date</label>
-          <div class="col-md-6">
-            <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div>
-          <script type="text/javascript">
-            $(function() {
-              $('#datetimepicker1').datetimepicker();
-            });
-          </script>
-        </div>
-
-        <!-- time input -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="event_type">Time</label>
-          <div class="col-md-6">
-            <div class='input-group date' id='datetimepicker3'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-              </span>
-            </div>
-          </div>
-          <script type="text/javascript">
-            $(function() {
-              $('#datetimepicker3').datetimepicker({
-                format: 'LT'
-              });
-            });
-          </script>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="available_tickets">Tickets available</label>
           <div class="col-md-6">
-            <input type="text" class="form-control" id="available_tickets" placeholder="number of tickets available">
+            <input id="available_tickets" type="text" class="form-control" placeholder="number of tickets available">
           </div>
         </div>
 
@@ -91,7 +61,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="event_description">Event description</label>
           <div class="col-md-6">
-            <textarea class="form-control" rows="5" type="text" class="form-control" id="event_description" placeholder="place description here"></textarea>
+            <textarea id="event_description"  class="form-control" rows="5" type="text" class="form-control" placeholder="place description here"></textarea>
           </div>
         </div>
 
@@ -107,7 +77,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="State">State</label>
           <div class="col-md-6">
-            <input id="State" name="State" type="text" placeholder="state" class="form-control input-md" required="">
+            <input id="state" name="State" type="text" placeholder="state" class="form-control input-md" required="">
           </div>
         </div>
 
@@ -133,7 +103,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="Address2">Address Line2</label>
           <div class="col-md-6">
-            <input id="Address2" name="Address2" type="text" placeholder="" class="form-control input-md">
+            <input id="address2" name="address2" type="text" placeholder="" class="form-control input-md">
             <span class="help-block">Apartment, suite , unit, building, floor, etc.</span>
           </div>
         </div>
@@ -142,7 +112,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="zip">Zip/Postal code</label>
           <div class="col-md-4">
-            <input id="zip" name="zip" type="text" placeholder="zip or postal code" class="form-control input-md" required="">
+            <input id="zip" name="zip" type="number" placeholder="zip or postal code" class="form-control input-md" required="">
 
           </div>
         </div>
@@ -170,7 +140,7 @@
         </div>
         </div>
 
-      </fieldset>
+      <!-- </fieldset> -->
     </form>
   </body>
 
