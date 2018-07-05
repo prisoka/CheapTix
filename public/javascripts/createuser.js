@@ -1,5 +1,5 @@
 window.onload = function() {
-  console.log('hellooooo!!!')
+  // console.log('hellooooo!!!')
   createUser(event);
 }
 
@@ -8,7 +8,7 @@ const usersUrl = apiUrl + '/users';
 
 
 function createUser(event){
-  console.log('HEY!')
+  // console.log('HEY!')
 
   event.preventDefault(); // prevent the webpage from refreshing
 
@@ -21,7 +21,11 @@ function createUser(event){
   fetch(usersUrl, {
     method: 'POST', // post HTTP method
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({username: username, email: email, password: password})
+    body: JSON.stringify({
+      username: username,
+      email: email,
+      password: password
+    })
   })
   .then(response => response.json())
   .then(() => {

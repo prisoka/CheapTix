@@ -19,12 +19,12 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('events', (table) => {
     table.increments().primary();
     table.integer('user_id').references('users.id').onDelete('CASCADE').index();
-    table.text('event_type').notNullable();
-    table.text('event_name').notNullable();
+    table.text('event_type');
+    table.text('event_name');
     table.date('event_date');
     table.time('event_time');
-    table.integer('available_tickets').notNullable();
-    table.text('description').notNullable();
+    table.integer('available_tickets');
+    table.text('description');
     table.string('state');
     table.string('city');
     table.text('address1');
