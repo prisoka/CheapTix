@@ -43,7 +43,7 @@
         <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
           <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input id='login_email-field' class="input" type="email" placeholder="Email">
+              <input id='login_email-field' class="input" type="email" placeholder="Email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -55,7 +55,7 @@
 
           <div class="field">
             <p class="control has-icons-left">
-              <input id='login_password-field' class="input" type="password" placeholder="Password">
+              <input id='login_password-field' class="input" type="password" placeholder="Password" minlength="8" required>
               <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
               </span>
