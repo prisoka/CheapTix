@@ -3,7 +3,7 @@ window.onload = function() {
   createUser(event);
 }
 
-const apiUrl = 'https://cheaptix.herokuapp.com';
+const apiUrl = 'https://cheaptix.herokuapp.com'; ////change to http://localhost:3000/ to use locally
 const usersUrl = apiUrl + '/users';
 
 

@@ -3,7 +3,7 @@ window.onload = function() {
   // createEvent(event);
 }
 
-const apiUrl = 'https://cheaptix.herokuapp.com';
+const apiUrl = 'https://cheaptix.herokuapp.com'; //change to localhost/3000 to use locally
 const eventsUrl = apiUrl + '/events';
 
 document.getElementById('create_event_form').addEventListener("submit", (ev) => {
