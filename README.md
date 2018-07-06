@@ -29,4 +29,4 @@ Deployment: Heroku.
 
 ## Developers:
 1. Colton Berger: https://github.com/coltonberger
-2. Priscilla Okawa: me :)
+2. Priscilla Okawa: that's me :)
