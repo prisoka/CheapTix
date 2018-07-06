@@ -3,7 +3,7 @@ window.onload = function() {
   createUser(event);
 }
 
-const apiUrl = 'http://localhost:3000';
+const apiUrl = process.env.DATABASE_URL;
 const usersUrl = apiUrl + '/users';
 
 
