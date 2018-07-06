@@ -49,7 +49,8 @@ function addEventToDom(event) {
 									${event.description}
 							</div>
 							<div class="content">
-									<a id="delete_button" class="button is-danger is-outlined" onclick="deleteEvent(event)">Delete</a>
+                <a id="edit_button" class="button is-primary is-outlined">Edit</a>
+								<a id="delete_button" class="button is-danger is-outlined" onclick="deleteEvent(event)">Delete</a>
 							</div>
 					</div>
 			</div>
