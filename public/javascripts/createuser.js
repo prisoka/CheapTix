@@ -3,7 +3,7 @@ window.onload = function() {
   createUser(event);
 }
 
-const apiUrl = process.env.DATABASE_URL;
+const apiUrl = 'https://cheaptix.herokuapp.com';
 const usersUrl = apiUrl + '/users';
 
 

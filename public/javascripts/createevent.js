@@ -3,7 +3,7 @@ window.onload = function() {
   // createEvent(event);
 }
 
-const apiUrl = process.env.DATABASE_URL;
+const apiUrl = 'https://cheaptix.herokuapp.com';
 const eventsUrl = apiUrl + '/events';
 
 document.getElementById('create_event_form').addEventListener("submit", (ev) => {
