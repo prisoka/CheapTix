@@ -41,7 +41,7 @@ function addEventToDom(event) {
 									${event.description}
 							</div>
 							<div class="content">
-									<a id="btnBuy" name="btnBuy" class="button is-primary" onclick="populateStorage()">Add to cart</a>
+									<a id="btnBuy" name="btnBuy" class="button is-link is-outlined" onclick="populateStorage()">Add to cart</a>
 							</div>
 					</div>
 			</div>
