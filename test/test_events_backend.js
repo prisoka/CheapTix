@@ -70,14 +70,14 @@ describe('GET /events/:id', () => {
   request(app)
     .get('/events/1')
     .end((err, res) => {
-      expect(res.body).to.deep.equal([{
+      expect(res.body).to.deep.equal({
         id: 1,
         user_id: 1,
         event_type: 'Party',
         event_name: 'Summer Solstice Party',
         available_tickets: 15,
         description: 'test'
-      }]);
+      });
       done();
     });
   });

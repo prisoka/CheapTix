@@ -40,7 +40,6 @@ function addEventToDom(event) {
 					<div id="event_card" class="card-content" data-event-id="${event.id}">
 							<div class="media">
 									<div class="media-content">
-                      <p class="title is-3"></p>
 											<p class="title is-4">${event.event_name}</p>
 											<p class="subtitle is-6">${event.event_date}</p>
 									</div>
