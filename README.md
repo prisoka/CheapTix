@@ -28,5 +28,5 @@ Deployment: Heroku.
 5. Must be interactive website / accepts user inputs.
 
 ## Developers:
-1. Colton Berger
-2. Priscilla Okawa
+1. Colton Berger: https://github.com/coltonberger
+2. Priscilla Okawa: me :)
