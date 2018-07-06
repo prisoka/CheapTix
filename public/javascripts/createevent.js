@@ -1,6 +1,5 @@
 window.onload = function() {
   console.log('I am the callback(s)')
-  // createEvent(event);
 }
 
 const apiUrl = 'http://localhost:3000';
@@ -37,6 +36,11 @@ function createEvent(ev){
   })
   .then(response => response.json())
   .then(() => {
+    swal({
+      title: "Event created",
+      icon: "success",
+      button: "Aww yiss!",
+    })
       console.log('CLEAR ME!')
       document.getElementById("create_event_form").reset();
   })
