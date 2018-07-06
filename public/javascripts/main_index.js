@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log(events) // represents success
 		// for each event, create DOM elements to populate cards in the index
 		events.forEach((event) => {
-			addEventToDom(event);
+			addEventToDom(event)
 		})
   })
 	.catch((err) => {
@@ -65,7 +65,18 @@ function populateStorage() {
   if(cart){
     cart.eventIds.push(eventId);
     localStorage.setItem('cart', JSON.stringify(cart));
+    swal({
+      title: "Event added to cart",
+      icon: "success",
+      button: "Okay",
+    })
+
   } else {
     localStorage.setItem('cart', JSON.stringify({eventIds: [eventId]}));
+    swal({
+      title: "Event added to cart",
+      icon: "success",
+      button: "Okay",
+    })
   }
 }
