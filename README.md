@@ -28,8 +28,5 @@ Deployment: Heroku.
 5. Must be interactive website / accepts user inputs.
 
 ## Developers:
-This site was built using [GitHub Pages](https://pages.github.com/).
-
-
 1. [Colton Berger](https://github.com/coltonberger)
 2. [Priscilla Okawa](https://github.com/prisoka)
