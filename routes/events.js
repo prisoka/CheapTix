@@ -32,26 +32,23 @@ router.get('/', function(req, res, next) {
 });
 
 // get ONE event
-router.get('/:userid', (req, res, next) => {
+router.get('/:eventId', (req, res, next) => {
   knex('events')
-  .where('id', req.params.userid)
+  .where('id', req.params.eventId)
   .then((events) => {
-    let newEvent = events.map((event) => {
-      delete event.created_at;
-      delete event.updated_at;
-      delete event.address1;
-      delete event.address2;
-      delete event.state;
-      delete event.city;
-      delete event.zip;
-      delete event.event_date;
-      delete event.event_time;
+    let event = events[0]
+    delete event.created_at;
+    delete event.updated_at;
+    delete event.address1;
+    delete event.address2;
+    delete event.state;
+    delete event.city;
+    delete event.zip;
+    delete event.event_date;
+    delete event.event_time;
 
-      // console.log('event is', event)
-      return event;
-    })
-    console.log('the specific user', newEvent)
-    res.send(newEvent)
+    console.log('the specific event', event)
+    res.send(event)
   })
 })
 

@@ -29,10 +29,10 @@ function addEventToDom(event) {
 									<img src="https://images.pexels.com/photos/167635/pexels-photo-167635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image">
 							</figure>
 					</div>
-					<div class="card-content">
+          <div id="event_card" class="card-content" data-event-id="${event.id}" data-event-name="${event.event_name}">
 							<div class="media">
 									<div class="media-content">
-											<p class="title is-4">${event.event_name}</p>
+											<p id="event_name_card" class="title is-4">${event.event_name}</p>
 											<p class="subtitle is-6">${event.event_date}</p>
 									</div>
 							</div>
@@ -41,7 +41,7 @@ function addEventToDom(event) {
 									${event.description}
 							</div>
 							<div class="content">
-									<a id="btnBuy" name="btnBuy" class="button is-primary" onsubmit="addToOrder()">Buy Tickets</a>
+									<a id="btnBuy" name="btnBuy" class="button is-primary" onclick="populateStorage()">Add to cart</a>
 							</div>
 					</div>
 			</div>
@@ -51,4 +51,21 @@ function addEventToDom(event) {
 
 	const eventContainer = document.getElementById('eventContainer');
 	eventContainer.innerHTML += eventCardHTML;
+}
+
+function populateStorage() {
+  console.log('Hey, im gonna send to localStorage')
+
+  let eventCard = event.target.parentElement.parentElement
+  let eventId = eventCard.getAttribute("data-event-id")
+  // console.log('CLICKED, eventId=', eventId)
+
+  let cart = JSON.parse(localStorage.getItem("cart"));
+
+  if(cart){
+    cart.eventIds.push(eventId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    localStorage.setItem('cart', JSON.stringify({eventIds: [eventId]}));
+  }
 }

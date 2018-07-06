@@ -1,25 +1,38 @@
 // AJAX with fetch
 document.addEventListener("DOMContentLoaded", function(event) {
-  // console.log("DOM fully loaded and parsed")
-  fetch('/events', {
-      method: 'GET'
-  })
-  .then((response) => {
-    return response.json()
-  })
-  .then((events) => {
-    console.log(events) // represents success
-		// for each event, create DOM elements to populate cards in the index
-		events.forEach((event) => {
-			addEventToDom(event);
-		})
-  })
-	.catch((err) => {
-		console.log(err)
-	})
+  console.log("DOM fully loaded and parsed")
+
+  //get cart from localStorage
+  let cart = JSON.parse(localStorage.getItem("cart"));
+
+  // if cart exists
+  if(cart) {
+    // for each eventId in cart
+    cart.eventIds.forEach((id) => {
+      // fetch each event from server
+      fetch('/events/'+id, {
+          method: 'GET'
+      })
+      .then((response) => {
+        return response.json()
+      })
+      .then((event) => {
+        // add event to dom
+        addEventToDom(event)
+      })
+      .catch((err) => {
+      	console.log(err)
+      })
+    })
+  } else {
+    console.log('The cart is empty!')
+  }
 });
 
-// function to create DOM elements to populate cards in the index
+window.onload = function() {
+
+}
+
 function addEventToDom(event) {
 	const eventCardHTML = `
 	<div class="column">
@@ -29,19 +42,16 @@ function addEventToDom(event) {
 									<img src="https://images.pexels.com/photos/167635/pexels-photo-167635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image">
 							</figure>
 					</div>
-					<div class="card-content">
+          <div id="event_card" class="card-content" data-event-id="${event.id}" data-event-name="${event.event_name}">
 							<div class="media">
 									<div class="media-content">
-											<p class="title is-4">${event.event_name}</p>
+											<p id="event_name_card" class="title is-4">${event.event_name}</p>
 											<p class="subtitle is-6">${event.event_date}</p>
 									</div>
 							</div>
 
 							<div class="content">
 									${event.description}
-							</div>
-							<div class="content">
-									<a id="btnBuy" name="btnBuy" class="button is-primary" onsubmit="addToOrder()">Buy Tickets</a>
 							</div>
 					</div>
 			</div>
