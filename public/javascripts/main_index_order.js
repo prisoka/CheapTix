@@ -35,7 +35,7 @@ window.onload = function() {
 
 function addEventToDom(event) {
 	const eventCardHTML = `
-	<div class="column is-one-third">
+	<div class="column is-one-quarter">
 			<div class="card">
 					<div class="card-image">
 							<figure class="image is-2by1">
@@ -46,12 +46,12 @@ function addEventToDom(event) {
 							<div class="media">
 									<div class="media-content">
 											<p id="event_name_card" class="title is-4">${event.event_name}</p>
-											<p class="subtitle is-6">${event.event_date}</p>
+											<p class="subtitle is-6">${event.event_type}</p>
 									</div>
 							</div>
 
 							<div class="content">
-									${event.description}
+                <p>${event.description}</p>
 							</div>
 					</div>
 			</div>
