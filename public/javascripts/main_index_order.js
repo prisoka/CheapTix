@@ -35,11 +35,11 @@ window.onload = function() {
 
 function addEventToDom(event) {
 	const eventCardHTML = `
-	<div class="column">
+	<div class="column is-one-third">
 			<div class="card">
 					<div class="card-image">
 							<figure class="image is-2by1">
-									<img src="https://images.pexels.com/photos/167635/pexels-photo-167635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image">
+									<img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-0.3.5&s=264727722bf2479d73380e1170bb3f48&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
 							</figure>
 					</div>
           <div id="event_card" class="card-content" data-event-id="${event.id}" data-event-name="${event.event_name}">
