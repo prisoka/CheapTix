@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <script type="text/javascript" src="userlogin.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
   <body>
@@ -38,12 +39,12 @@
         </div>
     </nav>
     <section class="section columns">
-      <div class="container has-text-centered column is-10 is-offset-1">
+      <div class="container has-text-centered column is-centered is-6">
       <h2 class="title">Login</h2>
         <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
           <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input id='login_email-field' class="input" type="email" placeholder="Email">
+              <input id='login_email-field' class="input" type="email" placeholder="Email" required>
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -55,7 +56,7 @@
 
           <div class="field">
             <p class="control has-icons-left">
-              <input id='login_password-field' class="input" type="password" placeholder="Password">
+              <input id='login_password-field' class="input" type="password" placeholder="Password" required>
               <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
               </span>

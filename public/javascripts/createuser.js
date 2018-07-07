@@ -1,14 +1,14 @@
 window.onload = function() {
-  // console.log('hellooooo!!!')
-  createUser(event);
+  console.log('hellooooo!!!')
 }
 
-const apiUrl = 'https://cheaptix.herokuapp.com'; ////change to http://localhost:3000/ to use locally
+const apiUrl = 'http://localhost:3000';
+// const apiUrl = 'https://cheaptix.herokuapp.com'; //change to http://localhost:3000/ to use locally
 const usersUrl = apiUrl + '/users';
 
 
 function createUser(event){
-  // console.log('HEY!')
+  console.log('HEY!')
 
   event.preventDefault(); // prevent the webpage from refreshing
 
@@ -29,8 +29,14 @@ function createUser(event){
   })
   .then(response => response.json())
   .then(() => {
-      console.log('CLEAR ME!')
-      document.getElementById("create_user_form").reset();
+    swal({
+      title: "User created",
+      text: "Welcome to CheapTix!",
+      icon: "success",
+      button: "Aww yiss!",
+    })
+    console.log('CLEAR ME!')
+    document.getElementById("create_user_form").reset();
   })
   .catch(error => console.log(error))
 }

@@ -1,9 +1,9 @@
 window.onload = function() {
   console.log('I am the callback(s)')
-  // createEvent(event);
 }
 
-const apiUrl = 'https://cheaptix.herokuapp.com'; //change to localhost/3000 to use locally
+const apiUrl = 'http://localhost:3000';
+// const apiUrl = 'https://cheaptix.herokuapp.com'; //change to localhost/3000 to use locally
 const eventsUrl = apiUrl + '/events';
 
 document.getElementById('create_event_form').addEventListener("submit", (ev) => {
@@ -36,6 +36,11 @@ function createEvent(ev){
   })
   .then(response => response.json())
   .then(() => {
+    swal({
+      title: "Event created",
+      icon: "success",
+      button: "Aww yiss!",
+    })
       console.log('CLEAR ME!')
       document.getElementById("create_event_form").reset();
   })

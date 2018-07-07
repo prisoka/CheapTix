@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log(events) // represents success
 		// for each event, create DOM elements to populate cards in the index
 		events.forEach((event) => {
-			addEventToDom(event);
+			addEventToDom(event)
 		})
   })
 	.catch((err) => {
@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // function to create DOM elements to populate cards in the index
 function addEventToDom(event) {
 	const eventCardHTML = `
-	<div class="column">
+	<div class="column is-one-third">
 			<div class="card">
 					<div class="card-image">
 							<figure class="image is-2by1">
-									<img src="https://images.pexels.com/photos/167635/pexels-photo-167635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Placeholder image">
+									<img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-0.3.5&s=264727722bf2479d73380e1170bb3f48&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
 							</figure>
 					</div>
           <div id="event_card" class="card-content" data-event-id="${event.id}" data-event-name="${event.event_name}">
@@ -41,7 +41,7 @@ function addEventToDom(event) {
 									${event.description}
 							</div>
 							<div class="content">
-									<a id="btnBuy" name="btnBuy" class="button is-primary" onclick="populateStorage()">Add to cart</a>
+									<a id="btnBuy" name="btnBuy" class="button is-link is-outlined" onclick="populateStorage()">Add to cart</a>
 							</div>
 					</div>
 			</div>
@@ -65,7 +65,18 @@ function populateStorage() {
   if(cart){
     cart.eventIds.push(eventId);
     localStorage.setItem('cart', JSON.stringify(cart));
+    swal({
+      title: "Event added to cart",
+      icon: "success",
+      button: "Okay",
+    })
+
   } else {
     localStorage.setItem('cart', JSON.stringify({eventIds: [eventId]}));
+    swal({
+      title: "Event added to cart",
+      icon: "success",
+      button: "Okay",
+    })
   }
 }
