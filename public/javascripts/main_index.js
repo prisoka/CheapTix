@@ -21,24 +21,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // function to create DOM elements to populate cards in the index
 function addEventToDom(event) {
-	const eventCardHTML = `
-	<div class="column is-one-third">
+	const eventCardHTML =`
+	<div class="column is-one-quarter">
 			<div class="card">
 					<div class="card-image">
 							<figure class="image is-2by1">
-									<img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-0.3.5&s=264727722bf2479d73380e1170bb3f48&auto=format&fit=crop&w=750&q=80" alt="Placeholder image">
+									<img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-0.3.5&s=264727722bf2479d73380e1170bb3f48&auto=format&fit=crop&w=750&q=80" alt="Placeholder image"/>
 							</figure>
 					</div>
           <div id="event_card" class="card-content" data-event-id="${event.id}" data-event-name="${event.event_name}">
 							<div class="media">
 									<div class="media-content">
 											<p id="event_name_card" class="title is-4">${event.event_name}</p>
-											<p class="subtitle is-6">${event.event_date}</p>
+											<p class="subtitle is-6">${event.event_type}</p>
 									</div>
 							</div>
 
 							<div class="content">
-									${event.description}
+                <p>${event.description}</p>
 							</div>
 							<div class="content">
 									<a id="btnBuy" name="btnBuy" class="button is-link is-outlined" onclick="populateStorage()">Add to cart</a>
@@ -46,7 +46,8 @@ function addEventToDom(event) {
 					</div>
 			</div>
 	</div>
-	`
+  `
+
 	console.log(eventCardHTML);
 
 	const eventContainer = document.getElementById('eventContainer');
