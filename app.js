@@ -14,6 +14,7 @@ const indexBusiness = require('./routes/index_business');
 const eventSubmissionRouter = require('./routes/submitevent');
 const createUserRouter = require('./routes/createuser');
 const orderRouter = require('./routes/order');
+const auth = require('./auth');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/auth', auth);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);

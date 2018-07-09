@@ -53,7 +53,7 @@ function addEventToDom(event) {
         </div>
 
         <div class="content">
-          <a id="edit_button" class="button is-primary is-outlined">Edit</a>
+          <a id="edit_button" class="button is-primary is-outlined onclick="showUpdateAlert(event)">Edit</a>
           <a id="delete_button" class="button is-danger is-outlined" onclick="showDeleteAlert(event)">Delete</a>
         </div>
 
@@ -116,3 +116,64 @@ function deleteEvent(eventId, eventCard){
   })
   .catch(error => console.log(error))
 }
+
+//UPDATE EVENT
+var eventCard = event.target.parentElement.parentElement
+var eventId = eventCard.getAttribute("data-event-id")
+
+console.log('UPDATE CLICKED, eventId=', eventId)
+
+function updateEvent(eventId, eventCard){
+  // fecth makes a network request
+  return fetch(`/events/${eventId}`, {
+    method: 'PUT', // delete HTTP method
+  })
+  .then((response) => {
+    // all good? check the response
+    console.log('response', response);
+    if( response.status == 200 ) {
+      // Backend DELETE went OK
+      // remove the event card from the DOM
+      var theCardColumn = eventCard.parentElement.parentElement
+      theCardColumn.parentElement.removeChild(theCardColumn)
+      swal("Poof! Your event has been deleted!", {
+        icon: "success"
+      })
+    } else {
+      swal("Oops, could not delete this event.", {
+        defeat: true
+      })
+      throw new Error("Couldn't delete on backend, oops")
+    }
+  })
+  .catch(error => console.log(error))
+}
+
+// UPDATE one user, whom already exists in DB
+router.put('/:userid', (req, res, next) => {
+  console.log('THE PUT ROUTE');
+  // look up a specific user in the database
+  knex('users')
+  .where('id', req.params.userid)
+  .then((data) => {
+    console.log('the specific user', data)
+
+    // once found, if found, update that user record's data
+    if(data.length) {
+      // user was found, go ahead and update
+      knex('users')
+      .update({
+        name: req.body.name
+      })
+      .where('id', req.params.userid)
+      .returning('*')
+      .then((updateResult) => {
+        console.log('updateResult', updateResult)
+
+        // respond with the user object, represents a record from the user table
+        // conclude the route
+        res.send(updateResult[0])
+      })
+    }
+  })
+})
