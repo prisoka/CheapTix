@@ -36,10 +36,10 @@ router.post('/', (req, res) => {
         res.cookie('token', token, {
           httpOnly: true,
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), //7days
-          secure: router.get('env') === 'production' // SET form the NODE_ENV
+          secure: app.get('env') === 'production' // SET form the NODE_ENV
         })
 
-        res.redirect('/');
+        res.redirect('/'); // ???
 
       } else {
         throw new Error('User not found')
