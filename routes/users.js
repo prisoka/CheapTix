@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
 const knex = require('../db/knex');
+const bcrypt = require('bcryptjs');
 
 
 //this router is mounted at http://localhost:3000/users
@@ -46,22 +46,48 @@ router.get('/:userid', (req, res, next) => {
 // table.string('username').notNullable();
 // table.text('password').notNullable();
 
-//create one event <<<OK>>>
+//create one USER
 router.post('/', (req, res, next) => {
-  console.log('REQ.BODY', req.body);
+  // console.log('REQ.BODY', req.body);
+
+  let email = req.body.email;
+  let username = req.body.username;
+  let password = req.body.password;
+
+  // check if the email already exists:
   knex('users')
-  .insert({
-    user_type: req.body.user_type,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password,
+  .where('email', email)
+  .first()
+  .then((user) => {
+    if(user) {
+      console.log("email already exists")
+      throw new Error('This email already exists!')
+    }
+
+    // hash the password
+    let hashed = bcrypt.hashSync(password)
+
+    // if it doesn't exist, create new user's record w/ email + hashed password
+    knex('users')
+    .insert({
+      // user_type: req.body.user_type,
+      email: email,
+      username: username,
+      password: hashed,
+    })
+    .returning('*')
+    .then((result) => {
+      // console.log("success")
+      console.log(result)
+      let insertedRecord = result[0]
+      console.log('data', insertedRecord)
+      res.send(insertedRecord)
+    })
   })
-  .returning('*')
-  .then((result) => {
-    console.log(result)
-    let insertedRecord = result[0]
-    console.log('data', insertedRecord)
-    res.send(insertedRecord)
+  .catch((err) => {
+    console.log(err)
+
+    next(err)
   })
 })
 
