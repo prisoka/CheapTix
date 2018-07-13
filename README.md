@@ -1,5 +1,5 @@
 # CheapTix
-Q2 Project- full stack app
+Q2 Project - Full stack app
 
 ## Deployed URL: 
 https://cheaptix.herokuapp.com/
@@ -18,7 +18,7 @@ This is our Q2 Full Stack Project, at Galvanize Web Development Immersive Course
 Front-end: HTML, CSS, JavaScript, Bootstrap CSS Framework;<br>
 Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL;<br>
 Testing: Mocha, Chai, Supertest;<br>
-Deployment: Heroku.
+Deployment: Heroku.<br>
 Project planning: Trello.
 
 ## Technical Requirements:
