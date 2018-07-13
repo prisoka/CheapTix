@@ -49,7 +49,6 @@ router.get('/:userid', (req, res, next) => {
 //create one USER
 router.post('/', (req, res, next) => {
   // console.log('REQ.BODY', req.body);
-
   let email = req.body.email;
   let username = req.body.username;
   let password = req.body.password;
@@ -86,7 +85,6 @@ router.post('/', (req, res, next) => {
   })
   .catch((err) => {
     console.log(err)
-
     next(err)
   })
 })
