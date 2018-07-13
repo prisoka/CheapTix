@@ -19,13 +19,31 @@ Front-end: HTML, CSS, JavaScript, Bootstrap CSS Framework;<br>
 Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL;<br>
 Testing: Mocha, Chai, Supertest;<br>
 Deployment: Heroku.
+Project planning: Trello.
 
 ## Technical Requirements:
-1. Use HTML, CSS, and JavaScript.
-2. Use a CSS Framework like Bootstrap or Materialize.
+The fronted requirements are as follows:<br>
+
+1. Include HTML, CSS, and JavaScript.
+2. Use a CSS Framework such as Bootstrap or Materialize.
 3. Organize your code with functions.
 4. Separate your HTML, CSS, and JavaScript into multiple files.
-5. Must be interactive website / accepts user inputs.
+5. Include some client-side validation.
+6. Store some data in Local Storage.
+7. Allow for users to be able to interact with the site.
+8. Have your frontend interact with routes via AJAX.
+9. Deploy.
+
+The backend requirements are as follows:<br>
+
+1. Follow RESTful patterns.
+2. Include error handling.
+3. Store data in a database.
+4. Submit an Entity Relationship Diagram for your relational database schema.
+5. Have at least one One-to-Many relationship and one Many-to-Many relationship between entities in your model.
+6. Your relational database schema MUST implement these relationships using foreign key constraints.
+7. Your relational database schema MUST be appropriately normalized.
+8. Deploy your server.
 
 ## Developers:
 1. [Colton Berger](https://github.com/coltonberger)
