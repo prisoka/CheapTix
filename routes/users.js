@@ -40,13 +40,7 @@ router.get('/:userid', (req, res, next) => {
   })
 })
 
-
-// table.string('user_type').notNullable();
-// table.string('email').notNullable();
-// table.string('username').notNullable();
-// table.text('password').notNullable();
-
-//create one USER
+// create NEW USER
 router.post('/', (req, res, next) => {
   // console.log('REQ.BODY', req.body);
   let email = req.body.email;
@@ -89,7 +83,7 @@ router.post('/', (req, res, next) => {
   })
 })
 
-//update one event <<<OK>>>
+//update one event
 router.put('/:userid', (req, res, next) => {
   console.log('THE PUT ROUTE');
   knex('users')
@@ -115,7 +109,7 @@ router.put('/:userid', (req, res, next) => {
   })
 })
 
-// DELETE a specific event <<<OK>>>
+// DELETE a specific event
 router.delete('/:id', function(req, res, next) {
   const eventId = req.params.id;
 

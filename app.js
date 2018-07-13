@@ -9,10 +9,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
-const loginRouter = require('./routes/login');
 const indexBusiness = require('./routes/index_business');
 const eventSubmissionRouter = require('./routes/submitevent');
 const createUserRouter = require('./routes/createuser');
+const loginRouter = require('./routes/login');
 const orderRouter = require('./routes/order');
 
 var app = express();
@@ -30,10 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
-app.use('/login', loginRouter);
 app.use('/index_business', indexBusiness);
 app.use('/submitevent', eventSubmissionRouter);
 app.use('/createuser', createUserRouter);
+app.use('/login', loginRouter);
 app.use('/order', orderRouter);
 
 
