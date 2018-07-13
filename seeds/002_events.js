@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
           event_date: '2018/07/01',
           event_time: '01:30',
           available_tickets: 15,
-          description: 'test'
+          description: 'Enjoy the best of Summer with us!!!'
         }, {
           id: 2,
           user_id: 2,
@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
           event_date: '2018/07/01',
           event_time: '01:30',
           available_tickets: 5,
-          description: 'test'
+          description: 'test test test test'
         }, {
           id: 3,
           user_id: 1,
@@ -31,7 +31,7 @@ exports.seed = function(knex, Promise) {
           event_date: '2018/07/01',
           event_time: '06:30',
           available_tickets: 10,
-          description: 'test'
+          description: 'We brought you: Picasso!'
         }
       ])
     })
