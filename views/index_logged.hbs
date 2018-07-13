@@ -10,8 +10,7 @@
     <!-- Bulma Version 0.7.1-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <script type="text/javascript" src="javascripts/main_index_business.js"></script>
-    <script src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/main_index.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -33,29 +32,33 @@
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item" href="">
-                    Business Home
-                </a>
-                <a class="navbar-item" href="/submitevent">
-                    Create New Event
+                    Home
                 </a>
             </div>
             <div class="navbar-end">
-                <a class="navbar-item" href="/">
+                <a class="navbar-item" href="/login">
                     Logout
+                </a>
+                <a class="navbar-item" href="/order">
+                    Your tickets
                 </a>
             </div>
         </div>
     </nav>
 
+    <section class="hero">
+        <figure class="image">
+            <img src="http://www.thegreatindiaplace.in/wp-content/uploads/2016/03/Events.png">
+        </figure>
+    </section>
 
     <section class="section">
         <div class="container has-text-centered">
-            <h2 class="title">Hey Partner, welcome to CheapTix!</h2>
-            <p>Here is a list of what you've already added:</p>
+            <h2 class="title">Welcome to CheapTix!</h2>
+            <p>Enjoy your favorite event for less, check out what's on...</p>
 
-            <div id="eventContainer" class="columns is-left is-multiline" style="padding: 2rem" onsubmit="deleteEvent(event)">
+            <div id="eventContainer" class="columns is-left is-multiline" style="padding: 2rem">
             </div>
-        </div>
         </div>
     </section>
 
@@ -84,7 +87,6 @@
             </div>
         </div>
     </footer>
-        <script src="../js/bulma.js"></script>
 </body>
 
 </html>

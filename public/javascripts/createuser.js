@@ -27,16 +27,28 @@ function createUser(event){
       password: password
     })
   })
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok){
+      throw new Error('request failed')
+    }
+    return response.json()
+  })
   .then(() => {
     swal({
       title: "User created",
       text: "Welcome to CheapTix!",
       icon: "success",
-      button: "Aww yiss!",
+      button: "Aww yiss!"
     })
     console.log('CLEAR ME!')
     document.getElementById("create_user_form").reset();
   })
-  .catch(error => console.log(error))
+  .catch((error) => {
+    console.log(error)
+    swal({
+      title: "This email already exists",
+      icon: "warning",
+      button: "ok"
+    })
+  })
 }

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CLIENT</title>
-    <script src="index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <script type="text/javascript" src="userlogin.js" defer></script>
@@ -41,7 +40,7 @@
     <section class="section columns">
       <div class="container has-text-centered column is-centered is-6">
       <h2 class="title">Login</h2>
-        <form onsubmit="<CALL FUNCTION FROM LOGIN.JS>">
+        <form onsubmit="login(event)">
           <div class="field">
             <p class="control has-icons-left has-icons-right">
               <input id='login_email-field' class="input" type="email" placeholder="Email" required>
