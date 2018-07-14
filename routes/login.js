@@ -26,6 +26,7 @@ router.post('/', (req, res) => {
     if(user){
       // user bcrypt.compare to input to hashed password in DB
       let passwordGood = bcrypt.compareSync(password, user.password)
+
       // if all good, create token, and attach it as a cookie attached to the response
       console.log('err')
       console.log(passwordGood)
@@ -44,7 +45,8 @@ router.post('/', (req, res) => {
           secure: true
           // secure: router.get('env') === 'production' // SET form the NODE_ENV
         })
-        res.status(200).send({});
+        let isBusinessPartner = user.user_type === 'business';
+        res.status(200).send({isBusinessPartner: isBusinessPartner});
 
       } else {
         throw new Error('User not found')

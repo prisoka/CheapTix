@@ -13,7 +13,6 @@ document.getElementById('login_submit-form').addEventListener("submit", (ev) => 
 
 function login(event){
   console.log('HEY!')
-
   event.preventDefault(); // prevent the webpage from refreshing
 
   let email = document.getElementById('login_email-field').value;
@@ -34,8 +33,12 @@ function login(event){
     }
     return response.json()
   })
-  .then(response => {
-    window.location.replace("./index_tickets");
+  .then(json => {
+    if(json.isBusinessPartner){
+      window.location.replace("./index_business");
+    } else {
+      window.location.replace("./index_tickets");
+    }
   })
   .catch((error) => {
     console.log(error)
