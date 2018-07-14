@@ -63,7 +63,7 @@ router.post('/', (req, res, next) => {
     // if it doesn't exist, create new user's record w/ email + hashed password
     knex('users')
     .insert({
-      // user_type: req.body.user_type,
+      user_type: 'customer',
       email: email,
       username: username,
       password: hashed,
