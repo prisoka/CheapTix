@@ -34,6 +34,9 @@ function login(event){
     }
     return response.json()
   })
+  .then(response => {
+    window.location.replace("./index_tickets");
+  })
   .catch((error) => {
     console.log(error)
   })

@@ -44,7 +44,6 @@ router.post('/', (req, res) => {
           secure: true
           // secure: router.get('env') === 'production' // SET form the NODE_ENV
         })
-
         res.status(200).send({});
 
       } else {
