@@ -28,12 +28,12 @@ function login(event){
     })
   })
   .then(response => {
-    if (!response.ok){
-      throw new Error('request failed')
-    }
     return response.json()
   })
   .then(json => {
+    if (json.error){
+      throw new Error(json.error.message)
+    }
     if(json.isBusinessPartner){
       window.location.replace("./index_business");
     } else {
@@ -42,5 +42,10 @@ function login(event){
   })
   .catch((error) => {
     console.log(error)
+    swal({
+      title: error.message,
+      icon: "warning",
+      button: "ok"
+    })
   })
 }
