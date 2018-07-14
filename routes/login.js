@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 });
 
 // login USER
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   let email = req.body.email;
   let password = req.body.password;
 
@@ -28,10 +28,6 @@ router.post('/', (req, res) => {
       let passwordGood = bcrypt.compareSync(password, user.password)
 
       // if all good, create token, and attach it as a cookie attached to the response
-      console.log('err')
-      console.log(passwordGood)
-
-
       if(passwordGood){
         //create token
         let payload = { userId: user.id }
@@ -42,20 +38,20 @@ router.post('/', (req, res) => {
         res.cookie('token', token, {
           httpOnly: true,
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), //7days
-          secure: true
-          // secure: router.get('env') === 'production' // SET form the NODE_ENV
+          secure: router.get('env') === 'production' // SET form the NODE_ENV
         })
         let isBusinessPartner = user.user_type === 'business';
         res.status(200).send({isBusinessPartner: isBusinessPartner});
 
       } else {
-        throw new Error('User not found')
+        throw new Error('Wrong password')
       }
+    } else {
+      throw new Error('User not found')
     }
   })
   .catch((err) => {
-    console.log(err)
-    next(err)
+    res.status(404).send({error: {message: err.message}})
   })
 })
 
