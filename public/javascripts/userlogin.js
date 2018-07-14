@@ -6,14 +6,17 @@ const apiUrl = 'http://localhost:3000';
 // const apiUrl = 'https://cheaptix.herokuapp.com'; //change to http://localhost:3000/ to use locally
 const loginUrl = apiUrl + '/login';
 
+document.getElementById('login_submit-form').addEventListener("submit", (ev) => {
+  ev.preventDefault()
+  createEvent(ev)
+})
 
 function login(event){
   console.log('HEY!')
-
   event.preventDefault(); // prevent the webpage from refreshing
 
-  let email = document.getElementById('create_email_field').value;
-  let password = document.getElementById('create_password_field').value;
+  let email = document.getElementById('login_email-field').value;
+  let password = document.getElementById('login_password-field').value;
 
   // fecth makes a network request
   fetch(loginUrl, {
@@ -30,9 +33,12 @@ function login(event){
     }
     return response.json()
   })
-  .then(() => {
-    console.log('CLEAR ME!')
-    document.getElementById("create_user_form").reset();
+  .then(json => {
+    if(json.isBusinessPartner){
+      window.location.replace("./index_business");
+    } else {
+      window.location.replace("./index_tickets");
+    }
   })
   .catch((error) => {
     console.log(error)

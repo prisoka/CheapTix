@@ -5,19 +5,19 @@
     <title>Events</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script type="text/javascript" src="../javascripts/createevent.js" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
+
   <body>
     <nav class="navbar is-dark">
         <div class="navbar-brand">
           <div class="navbar-start">
-              <h3 class="navbar-item">
-                  CheapTix
-              </h3>
+            <a class="navbar-item has-text-weight-bold is-size-3">
+              CheapTix
+            </a>
           </div>
             <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
                 <span></span>
@@ -46,7 +46,7 @@
           <div class="field">
             <label class="label has-text-left" for="user_id">User ID</label>
             <div class="control">
-              <input id="user_id_createevent" name="user_id_createevent" type="text" class="form-control input-md" placeholder="your user ID number">
+              <input id="user_id_createevent" name="user_id_createevent" type="text" class="input" placeholder="your user ID number">
             </div>
           </div>
 
@@ -54,7 +54,7 @@
           <div class="field">
             <label class="label has-text-left" for="event_name">Name of the event</label>
             <div class="control">
-              <input id="event_name" name="event_name" type="text" class="form-control input-md" placeholder="e.g Summer Solstice Party!" required="">
+              <input id="event_name" name="event_name" type="text" class="input" placeholder="e.g Summer Solstice Party!" required="">
             </div>
           </div>
 
@@ -62,7 +62,7 @@
           <div class="field">
             <label class="label has-text-left" for="event_type">Type of event</label>
             <div class="control">
-              <input id="event_type" name="event_type" type="text" class="form-control input-md" placeholder="e.g Party, Movies, Street Market" required="">
+              <input id="event_type" name="event_type" type="text" class="input" placeholder="e.g Party, Movies, Street Market" required="">
             </div>
           </div>
 
@@ -70,7 +70,7 @@
           <div class="field">
             <label class="label has-text-left" for="available_tickets">Tickets available</label>
             <div class="control">
-              <input id="available_tickets" name="available_tickets" type="text" class="form-control input-md" placeholder="number of tickets available">
+              <input id="available_tickets" name="available_tickets" type="text" class="input" placeholder="number of tickets available">
             </div>
           </div>
 
@@ -78,7 +78,7 @@
           <div class="field">
             <label class="label has-text-left" for="description">Event description</label>
             <div class="control">
-              <textarea id="description" name="description" class="form-control input-md" rows="5" type="text" class="form-control" placeholder="place description here"></textarea>
+              <textarea id="description" name="description" class="input" rows="5" type="text" class="form-control" placeholder="place description here"></textarea>
             </div>
           </div>
 
@@ -94,7 +94,7 @@
           <div class="field">
             <label class="label has-text-left" for="State">State</label>
             <div class="control">
-              <input id="state" name="State" type="text" placeholder="state" class="form-control input-md" required="">
+              <input id="state" name="State" type="text" placeholder="state" class="input" required="">
             </div>
           </div>
 
@@ -102,7 +102,7 @@
           <div class="field">
             <label class="label has-text-left" for="city">City/Town</label>
             <div class="control">
-              <input id="city" name="city" type="text" placeholder="city or town" class="form-control input-md" required="">
+              <input id="city" name="city" type="text" placeholder="city or town" class="input" required="">
             </div>
           </div>
 
@@ -111,7 +111,7 @@
           <div class="field">
             <label class="label has-text-left" for="address1">Address Line1</label>
             <div class="control">
-              <input id="address1" name="address1" type="text" placeholder="" class="form-control input-md">
+              <input id="address1" name="address1" type="text" placeholder="" class="input">
               <span class="help">Street address, P.O. box, company name, c/o</span>
             </div>
           </div>
@@ -120,7 +120,7 @@
           <div class="field">
             <label class="label has-text-left" for="Address2">Address Line2</label>
             <div class="control">
-              <input id="address2" name="address2" type="text" placeholder="" class="form-control input-md">
+              <input id="address2" name="address2" type="text" placeholder="" class="input">
               <span class="help">Apartment, suite , unit, building, floor, etc.</span>
             </div>
           </div>
@@ -129,7 +129,7 @@
           <div class="field">
             <label class="label has-text-left" for="zip">Zip/Postal code</label>
             <div class="control">
-              <input id="zip" name="zip" type="text" placeholder="zip or postal code" class="form-control input-md" required="">
+              <input id="zip" name="zip" type="text" placeholder="zip or postal code" class="input" required="">
             </div>
           </div>
 

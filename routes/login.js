@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const knex = require('../db/knex');
 
+require('dotenv').config();
 
 /* GET login page. */
 router.get('/', (req, res, next) => {
@@ -20,10 +22,15 @@ router.post('/', (req, res) => {
   .where('email', email)
   .first()
   .then(user => {
+    console.log(user)
     if(user){
       // user bcrypt.compare to input to hashed password in DB
       let passwordGood = bcrypt.compareSync(password, user.password)
+
       // if all good, create token, and attach it as a cookie attached to the response
+      console.log('err')
+      console.log(passwordGood)
+
 
       if(passwordGood){
         //create token
@@ -31,15 +38,15 @@ router.post('/', (req, res) => {
         let token = jwt.sign(payload, process.env.JWT_KEY, {
           expiresIn: '7days' //adds d expire field to the payload
         })
-
         // put the token into a cookie attached to the response
         res.cookie('token', token, {
           httpOnly: true,
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), //7days
-          secure: router.get('env') === 'production' // SET form the NODE_ENV
+          secure: true
+          // secure: router.get('env') === 'production' // SET form the NODE_ENV
         })
-
-        res.redirect('/');
+        let isBusinessPartner = user.user_type === 'business';
+        res.status(200).send({isBusinessPartner: isBusinessPartner});
 
       } else {
         throw new Error('User not found')

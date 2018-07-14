@@ -4,10 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
 // setup routes:
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+const ticketsRouter = require('./routes/index_tickets');
 const eventsRouter = require('./routes/events');
 const indexBusiness = require('./routes/index_business');
 const eventSubmissionRouter = require('./routes/submitevent');
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/index_tickets', ticketsRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
 app.use('/index_business', indexBusiness);
