@@ -31,7 +31,9 @@ router.post('/', (req, res, next) => {
       if(passwordGood){
         //create token
         let payload = { userId: user.id }
-        let token = jwt.sign(payload, process.env.JWT_KEY, {
+      //  let token = jwt.sign(payload, process.env.JWT_KEY, {
+          let token = jwt.sign(payload, process.env.key_one, {
+
           expiresIn: '7days' //adds d expire field to the payload
         })
         // put the token into a cookie attached to the response
