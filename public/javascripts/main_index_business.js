@@ -53,7 +53,7 @@ function addEventToDom(event) {
         </div>
 
         <div class="content">
-          <a id="edit_button" class="button is-primary is-outlined">Edit</a>
+          
           <a id="delete_button" class="button is-danger is-outlined" onclick="showDeleteAlert(event)">Delete</a>
         </div>
 
