@@ -16,7 +16,7 @@ This is our Q2 Full Stack Project, at Galvanize Web Development Immersive Course
 
 ## Technologies: 
 Front-end: HTML, CSS, JavaScript, Bootstrap CSS Framework;<br>
-Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL;<br>
+Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL, Bcrypt, JWT;<br>
 Testing: Mocha, Chai, Supertest;<br>
 Deployment: Heroku.<br>
 Project planning: Trello.
