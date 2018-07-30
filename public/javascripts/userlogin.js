@@ -2,8 +2,8 @@ window.onload = function() {
   console.log('hellooooo!!!')
 }
 
-//const apiUrl = 'http://localhost:3000';
-const apiUrl = 'https://cheaptix.herokuapp.com'; //change to http://localhost:3000/ to use locally
+const apiUrl = 'http://localhost:3000';
+// const apiUrl = 'https://cheaptix.herokuapp.com'; //change to http://localhost:3000/ to use locally
 const loginUrl = apiUrl + '/login';
 
 document.getElementById('login_submit-form').addEventListener("submit", (ev) => {

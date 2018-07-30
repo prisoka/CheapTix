@@ -35,7 +35,7 @@ function addEventToDom(event) {
 
       <div class="card-image">
         <figure class="image is-2by1">
-        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-0.3.5&s=264727722bf2479d73380e1170bb3f48&auto=format&fit=crop&w=750&q=80" alt="Placeholder image"/>
+          <img src="https://cheaptix.herokuapp.com/rachel-lynette-french-609252-unsplash.jpg">
         </figure>
       </div>
 
@@ -53,7 +53,7 @@ function addEventToDom(event) {
         </div>
 
         <div class="content">
-          
+
           <a id="delete_button" class="button is-danger is-outlined" onclick="showDeleteAlert(event)">Delete</a>
         </div>
 
