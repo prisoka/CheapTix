@@ -19,7 +19,7 @@ Front-end: HTML, CSS, JavaScript, Bootstrap CSS Framework;<br>
 Back-end: Express, Node.js, Knex.js, JavaScript, PostgreSQL, Bcrypt, JWT;<br>
 Testing: Mocha, Chai, Supertest;<br>
 Deployment: Heroku.<br>
-Project planning: Trello.
+Project planning: [Trello](https://trello.com/b/qIyZIMI7/cheaptix).
 
 ## Technical Requirements:
 The fronted requirements are as follows:<br>
